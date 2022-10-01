@@ -1,4 +1,5 @@
 require('./config/passport');
+require('dotenv').config();
 const express = require('express');
 const sequelize = require('./config/bd');
 const app = express();
@@ -10,7 +11,7 @@ app.use(bodyParser.json());
 //Rutas
 app.use(auth.optional);
 app.use('/v1', require('./routes'));
-const PORT = 4001;
+const PORT = process.env.APP_PORT;
 
 
 try {
