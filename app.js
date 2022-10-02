@@ -20,6 +20,6 @@ try {
   console.log('No jalo la base de datos:', error);
 }
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server is listening on port ${PORT}`);
+const listener = app.listen(process.env.PORT || 4000, () => {
+  console.log(`Server is listening on port ` + listener.address().port);
 });
