@@ -8,7 +8,10 @@ const sequelize = new Sequelize(
 {
     host: process.env.DB_HOST,
     dialect: 'postgres',
-    native: true
+    native: true,
+    ssl: {
+        rejectUnauthorized: false
+      }
 });
 
 module.exports = sequelize;
