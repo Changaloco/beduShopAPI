@@ -11,8 +11,6 @@ app.use(bodyParser.json());
 //Rutas
 app.use(auth.optional);
 app.use('/v1', require('./routes'));
-const PORT = process.env.APP_PORT;
-
 
 try {
   sequelize.authenticate();
@@ -22,6 +20,6 @@ try {
   console.log('No jalo la base de datos:', error);
 }
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
