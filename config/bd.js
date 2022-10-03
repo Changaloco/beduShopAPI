@@ -9,9 +9,11 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST,
     dialect: 'postgres',
     native: true,
-    "ssl": {
-        "require": true,
-        "rejectUnauthorized": false
+    dialectOptions: {
+        ssl: {
+          require: true, // This will help you. But you will see nwe error
+          rejectUnauthorized: false // This line will fix new error
+        }
       },
 });
 
